@@ -1,0 +1,24 @@
+# docker-compose.yml
+version: "3.7"
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    volumes:
+      - ./database/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - "27017:27017"
+    restart: always
+  walkingfeet-api:
+    build:
+      context: ./
+      dockerfile: DockerFile
+    volumes:
+      - /usr/src/app/node_modules
+      - ./:/usr/src/app
+    depends_on:
+      - mongodb
+    ports:
+      - "5002:5002"
+    restart: on-failure
+    container_name: walkingfeetApi
