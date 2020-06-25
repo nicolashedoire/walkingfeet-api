@@ -19,6 +19,6 @@ services:
     depends_on:
       - mongodb
     ports:
-      - "5002:5002"
+      - "5004:5004"
     restart: on-failure
     container_name: walkingfeetApi
