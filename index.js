@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const { generateJwt } = require('./services/jwt');
 
-mongoose.connect("mongodb://mongo:mongo@localhost/walkingfeet", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://mongo:mongo@0.0.0.0/walkingfeet", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('error', (err) => console.log(`Erreur de connexion à la base : ${err}`))
 mongoose.connection.on('open', () => console.log('Connexion à la base de données réussie...'));
 
