@@ -18,12 +18,29 @@ http://localhost:5002/hikings
 Login : mongo
 Password : mongo
 
+### Se rendre dans le conteneur mongodb
 
-### Créer un dump de la base à la date du jour
+````
+docker exec -it mongodb  /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
+````
+
+### Créer un dump de la base de données par
+
+````
+mongodump --db walkingfeet -u mongo -p mongo --out /home/`date +"%m-%d-%y"`
+````
+
+### Créer un dump d'une collection à la date du jour si besoin
 
 ```
 mongodump --db test --collection hikings -u mongo -p mongo --out /home/`date +"%m-%d-%y"`
 ```
+
+### Sortir du conteneur
+
+````
+exit
+````
 
 ### Copier le dump à la date du jour hors du conteneur docker
 
@@ -36,6 +53,12 @@ docker cp mongodb:/home/`date +"%m-%d-%y"` .
 ```
 docker cp dumps/`date +"%m-%d-%y"` mongodb:/home
 ```
+
+### Se rendre à nouveau dans le conteneur mongodb
+
+````
+docker exec -it mongodb  /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
+````
 
 ### Restaurer le dump de la base de données
 
