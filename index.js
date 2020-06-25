@@ -24,6 +24,10 @@ app.use(bodyParser.raw());
 
 console.log(`Mongoose version ${mongoose.version} installée`);
 
+app.get('/', (req, res) => {
+  res.send('API running...');
+})
+
 app.post('/oauth/google', async (req, res) => {
   const user = await User.findOne({email: req.body.email}, (err, user) => user);
   if (user === null) {
