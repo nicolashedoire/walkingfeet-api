@@ -2,6 +2,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const { Hiking } = require('./models/hiking');
 const { User } = require('./models/user');
+const https = require('https');
+const fs = require('fs');
 const express = require("express");
 const pretty = require('express-prettify');
 const cors = require('cors');
@@ -138,6 +140,9 @@ app.delete('/hikings/:id', async (req, res) => {
   });
 });
 
-app.listen(5004, () => {
+https.createServer({
+  key: fs.readFileSync('./server.key'),
+  cert: fs.readFileSync('./server.cert')
+}, app).listen(5004, () => {
   console.log('Mongodb API listen on port 5004');
 });
