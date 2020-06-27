@@ -20,7 +20,7 @@ const hikingSchema = mongoose.Schema({
 	description: String,
 });
 
-const Hiking = mongoose.model("Hiking" , hikingSchema);
+const Hiking = mongoose.model("hiking" , hikingSchema, 'hiking');
 
 module.exports = {
 Hiking

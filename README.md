@@ -65,3 +65,15 @@ docker exec -it mongodb  /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
 ```
 mongorestore --drop --db test /home/`date +"%m-%d-%y"`/test -u mongo -p mongo
 ```
+
+
+## Mongo 
+
+## Search by name example 
+
+````
+db.users.find(name: new RegExp(search)) //For substring search, case sensitive. 
+db.users.find(name: new RegExp('^' + search + '$')) //For exact search, case sensitive
+db.users.find(name: new RegExp(search， ‘i')) //For substring search, case insensitive
+db.users.find(name: new RegExp('^' +search + '$', 'i')); //For exact search, case insensitive
+```

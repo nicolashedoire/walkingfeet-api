@@ -12,3 +12,26 @@ db.createUser(
         ]
     }
 );
+
+db.city.insertMany([
+    {
+      name: 'Lille',
+      country: 'France'
+    },
+    {
+        name: 'Douai',
+        country: 'France'
+    },
+    {
+        name: 'Arras',
+        country: 'France'
+    },
+    {
+        name: 'Besançon',
+        country: 'France'
+    },
+    {
+      name: 'Mons',
+      country: 'Belgique'
+    }
+]);

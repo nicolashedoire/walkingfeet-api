@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
 	created: Date
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("user", userSchema, 'user');
 
 module.exports = {
 	User

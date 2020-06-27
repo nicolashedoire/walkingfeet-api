@@ -2,6 +2,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const { Hiking } = require('./models/hiking');
 const { User } = require('./models/user');
+const { City } = require('./models/city');
 const https = require('https');
 const fs = require('fs');
 const express = require("express");
@@ -94,6 +95,17 @@ app.get('/hikings', async (req, res) => {
     if (err) return console.err(err);
     return res.send(hikings);
   });
+});
+
+app.get('/cities', async (req, res) => {
+  const city = req.query.name;
+  if(city.length < 3) {
+    return res.send([]);
+  }
+  City.find({name: new RegExp(city, 'i')}, (err, cities) => {
+    if (err) return console.err(err);
+    return res.send(cities);
+  })
 });
 
 app.post('/hikings', async (req, res) => {

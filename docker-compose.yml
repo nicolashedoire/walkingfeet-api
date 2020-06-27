@@ -19,8 +19,8 @@ services:
       - ./:/usr/src/app
     depends_on:
       - mongodb
-    network_mode: host
     ports:
       - "5004:5004"
     restart: on-failure
+    network_mode: host
     container_name: walkingfeetApi
