@@ -106,6 +106,7 @@ app.get('/hikings/:id', async (req, res) => {
 });
 
 app.get('/cities', async (req, res) => {
+  return res.send('toto');
   const city = req.query.name;
   if(city.length < 3) {
     return res.send([]);
