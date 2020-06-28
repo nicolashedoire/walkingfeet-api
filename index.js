@@ -111,6 +111,7 @@ app.get('/cities', async (req, res) => {
     return res.send([]);
   }
   City.find({name: new RegExp(city, 'i')}, (err, cities) => {
+    console.log(cities);
     if (err) return console.err(err);
     return res.send(cities);
   })
