@@ -113,5 +113,31 @@ db.city.insertMany([
     {
       name: 'Mons',
       country: 'Belgique'
+    },
+    {
+        name: 'Roeulx',
+        country: 'Belgique'
+    }
+]);
+
+db.hiking.insertMany([
+    {
+        startDate : '',
+        startTime: '',
+        endTime: '',
+        duration : '4:20',
+        name : 'Randonnée de Roeulx',
+        distance : '18',
+        checkPoints : [],
+        note : 5,
+        comment : 'Mauvaises indications',
+        elevation : '',
+        medias : [],
+        difficulty : 'Facile',
+        type: 'Foret, route, sentier',
+        family : true,
+        country: 'Belgique',
+        city: 'Roeulx',
+        description: 'Belle randonnée détente à faire absolument par grand soleil',
     }
 ]);

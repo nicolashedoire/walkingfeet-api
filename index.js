@@ -97,6 +97,14 @@ app.get('/hikings', async (req, res) => {
   });
 });
 
+app.get('/hikings/:id', async (req, res) => {
+  console.log(req.params.id);
+  Hiking.findById(req.params.id, (err, hiking) => {
+    if (err) return console.err(err);
+    return res.send(hiking);
+  });
+});
+
 app.get('/cities', async (req, res) => {
   const city = req.query.name;
   if(city.length < 3) {
